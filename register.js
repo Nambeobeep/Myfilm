@@ -1,4 +1,4 @@
-// Xử lý form đăng ký
+// form đăng ký
 document.addEventListener('DOMContentLoaded', function() {
     const registerForm = document.getElementById('registerForm');
     const errorMessage = document.getElementById('errorMessage');
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Kiểm tra email đã tồn tại (tạm dùng localStorage)
+
         const existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
         const userExists = existingUsers.find(user => user.email === email);
         
@@ -133,22 +133,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Tạm thời lưu vào localStorage
             const userData = {
-                id: Date.now(), // Tạm dùng timestamp làm ID
+                id: Date.now(),
                 fullName: fullName,
                 email: email,
                 phone: phone,
-                password: password, // Trong thực tế, password phải được hash ở backend
+                password: password, 
                 registeredAt: new Date().toISOString()
             };
             
             existingUsers.push(userData);
             localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
             
-            // Hiển thị thông báo thành công
+
             successMessage.textContent = 'Đăng ký thành công! Đang chuyển đến trang đăng nhập...';
             successMessage.style.display = 'block';
             
-            // Redirect đến trang đăng nhập sau 2 giây
+
             setTimeout(() => {
                 window.location.href = 'login.html?registered=true';
             }, 2000);

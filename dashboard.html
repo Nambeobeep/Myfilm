@@ -1,44 +1,149 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Phim Của Tôi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="dashboard.css" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link href="dashboard.css" rel="stylesheet" />
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-brand">
-                <h1 class="logo">🎬 Phim Của Tôi</h1>
-            </div>
-            <div class="navbar-menu">
-                <!-- Navbar items - để trống để bạn tự code -->
-            </div>
-            <div class="navbar-actions">
-                <button id="logoutBtn" class="btn-logout">Đăng xuất</button>
-            </div>
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <h1 class="logo">🎬 Phim Của Tôi</h1>
         </div>
+        <div class="navbar-menu">
+          <!-- Navbar items - để trống để bạn tự code -->
+          <div class="d-flex justify-content-center w-100 mt-3">
+            <div class="input-group search-bar" style="max-width: 650px">
+              <span class="input-group-text bg-dark border-dark text-light">
+                <i class="bi bi-search"></i>
+              </span>
+              <input
+                type="text"
+                id="search-input"
+                class="form-control bg-dark border-dark text-light"
+                placeholder="Search for a movie..."
+              />
+            </div>
+          </div>
+
+          <div id="search-results"></div>
+
+          <script src="search.js"></script>
+        </div>
+        <div class="navbar-actions">
+          <button id="logoutBtn" class="btn-logout">Đăng xuất</button>
+        </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
-            <div class="welcome-section">
-                <h2>Chào mừng trở lại!</h2>
-                <p id="userName" class="user-name"></p>
-            </div>
-            
-            <!-- Content area - để bạn tự code -->
-            <div class="content-area">
-                <!-- Thêm nội dung của bạn ở đây -->
-            </div>
+      <div class="container">
+        <div class="welcome-section">
+          <h2>Chào mừng trở lại!</h2>
+          <p id="userName" class="user-name"></p>
         </div>
+
+        <div class="dashboard-layout">
+          <aside class="dashboard-sidebar">
+            <div class="sidebar-hero">
+              <p class="eyebrow">Xin chào</p>
+              <h3 id="sidebarUser">Khách</h3>
+              <p class="hero-text">
+                Khám phá thế giới điện ảnh với hàng nghìn bộ phim được cập nhật
+                liên tục.
+              </p>
+              <button id="refreshFeatured" class="hero-btn">
+                Lấy gợi ý mới
+              </button>
+            </div>
+
+            <div class="sidebar-section">
+              <div class="section-header">
+                <h4>Danh mục khám phá</h4>
+                <span class="section-hint">Chọn thể loại bạn yêu thích</span>
+              </div>
+              <div class="filter-grid" id="genreFilters">
+                <button class="filter-chip active" data-genre="all">
+                  Tất cả
+                </button>
+                <button class="filter-chip" data-genre="28">Hành động</button>
+                <button class="filter-chip" data-genre="35">Hài hước</button>
+                <button class="filter-chip" data-genre="18">Tâm lý</button>
+                <button class="filter-chip" data-genre="10749">Lãng mạn</button>
+                <button class="filter-chip" data-genre="878">
+                  Khoa học viễn tưởng
+                </button>
+                <button class="filter-chip" data-genre="27">Kinh dị</button>
+                <button class="filter-chip" data-genre="16">Hoạt hình</button>
+              </div>
+            </div>
+
+            <div class="sidebar-section">
+              <div class="section-header">
+                <h4>Gợi ý hôm nay</h4>
+                <button class="ghost-btn" id="shuffleHighlights">
+                  Xem thêm
+                </button>
+              </div>
+              <div id="featuredMovies" class="featured-list"></div>
+            </div>
+
+            <div class="sidebar-section mini-grid">
+              <div class="stat-card">
+                <span class="stat-label">Phim đã xem</span>
+                <strong class="stat-value">128</strong>
+                <span class="stat-trend up">+8 tuần này</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-label">Danh sách yêu thích</span>
+                <strong class="stat-value">32</strong>
+                <span class="stat-trend neutral">Đang cập nhật</span>
+              </div>
+            </div>
+          </aside>
+
+          <section class="content-area">
+            <div class="content-header">
+              <div>
+                <p class="eyebrow">Danh sách đề xuất</p>
+                <h2>Bộ sưu tập được cá nhân hóa</h2>
+                <p class="subheading">
+                  Tổng hợp các bộ phim nổi bật dựa trên xu hướng và sở thích của
+                  bạn.
+                </p>
+              </div>
+              <div class="content-actions">
+                <button id="refreshMovies" class="ghost-btn">
+                  Làm mới danh sách
+                </button>
+              </div>
+            </div>
+            <ul id="movieList"></ul>
+            <div class="infinite-status">
+              <div id="infiniteSpinner" class="infinite-spinner hidden"></div>
+              <p id="infiniteMessage" class="infinite-message"></p>
+            </div>
+            <div id="infiniteSentinel"></div>
+          </section>
+        </div>
+      </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script src="dashboard.js"></script>
-</body>
+  </body>
 </html>
