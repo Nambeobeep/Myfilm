@@ -20,24 +20,26 @@
           <h1 class="logo">🎬 Phim Của Tôi</h1>
         </div>
         <div class="navbar-menu">
-          <!-- Navbar items - để trống để bạn tự code -->
-          <div class="d-flex justify-content-center w-100 mt-3">
-            <div class="input-group search-bar" style="max-width: 650px">
-              <span class="input-group-text bg-dark border-dark text-light">
-                <i class="bi bi-search"></i>
+          <div class="search-wrapper mt-2 mb-2">
+            <div class="input-group search-pill-custom">
+              <span
+                class="input-group-text bg-transparent border-0"
+                id="search-addon"
+              >
+                <i class="fas fa-search text-white-50"></i>
               </span>
-              <input
-                type="text"
+
+              <input 
+                type="search" class="form-control bg-transparent border-0 text-white"
+                placeholder="Tìm kiếm phim..."
+                aria-label="Search"
                 id="search-input"
-                class="form-control bg-dark border-dark text-light"
-                placeholder="Search for a movie..."
               />
+              <span class="input-group-text bg-transparent border-0"></span>
             </div>
           </div>
 
           <div id="search-results"></div>
-
-          <script src="search.js"></script>
         </div>
         <div class="navbar-actions">
           <button id="logoutBtn" class="btn-logout">Đăng xuất</button>
@@ -99,16 +101,7 @@
             </div>
 
             <div class="sidebar-section mini-grid">
-              <div class="stat-card">
-                <span class="stat-label">Phim đã xem</span>
-                <strong class="stat-value">128</strong>
-                <span class="stat-trend up">+8 tuần này</span>
-              </div>
-              <div class="stat-card">
-                <span class="stat-label">Danh sách yêu thích</span>
-                <strong class="stat-value">32</strong>
-                <span class="stat-trend neutral">Đang cập nhật</span>
-              </div>
+              
             </div>
           </aside>
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết phim - Phim Của Tôi</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link href="movie.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <a href="dashboard.html" class="logo-link">
+            <h1 class="logo">🎬 Phim Của Tôi</h1>
+          </a>
+        </div>
+        <div class="navbar-actions">
+          <a href="dashboard.html" class="ghost-btn small">← Quay về danh sách</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="movie-main">
+      <div id="movieShell" class="movie-shell loading">
+        <div class="movie-hero">
+          <div class="poster-wrapper">
+            <img id="moviePoster" alt="Poster phim" />
+          </div>
+          <div class="hero-info">
+            <p class="eyebrow" id="movieStatusLabel">Đang tải thông tin…</p>
+            <h1 id="movieTitle" class="movie-title">Đang tải...</h1>
+            <p id="movieTagline" class="movie-tagline"></p>
+            <div class="hero-meta" id="movieMeta"></div>
+            <div class="hero-rating" id="movieRating"></div>
+            <div class="hero-genres" id="movieGenres"></div>
+          </div>
+        </div>
+
+        <div class="movie-body">
+          <section class="movie-section">
+            <h2>Giới thiệu</h2>
+            <p id="movieOverview" class="movie-overview">
+              Đang tải mô tả phim...
+            </p>
+          </section>
+
+          <section class="movie-section" id="castSection">
+            <h2>Diễn viên nổi bật</h2>
+            <div id="movieCast" class="cast-grid"></div>
+          </section>
+
+          <section class="movie-section" id="extraSection">
+            <h2>Thông tin thêm</h2>
+            <div class="extra-grid">
+              <div class="extra-card">
+                <span class="extra-label">Ngôn ngữ gốc</span>
+                <p id="movieLanguage" class="extra-value">—</p>
+              </div>
+              <div class="extra-card">
+                <span class="extra-label">Ngân sách</span>
+                <p id="movieBudget" class="extra-value">—</p>
+              </div>
+              <div class="extra-card">
+                <span class="extra-label">Doanh thu</span>
+                <p id="movieRevenue" class="extra-value">—</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="movieError" class="movie-error hidden">
+          <p>Không thể tải thông tin phim. Vui lòng thử lại sau.</p>
+          <a href="dashboard.html" class="ghost-btn">← Quay lại trang chủ</a>
+        </div>
+      </div>
+    </main>
+
+    <script src="movie.js"></script>
+  </body>
+</html>
+
+

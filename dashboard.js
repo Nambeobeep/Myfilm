@@ -158,7 +158,7 @@ function createFeaturedMovieCard(phim) {
 	const rating = phim.vote_average ? phim.vote_average.toFixed(1) : 'N/A';
 	
 	return `
-		<article class="featured-card">
+		<a class="featured-card" href="movie.html?id=${phim.id || ''}">
 			<img src="${posterUrl}" alt="${phim.title || 'Không có tiêu đề'}"
 				 onerror="this.src='https://via.placeholder.com/500x750?text=No+Image'">
 			<div class="featured-info">
@@ -166,7 +166,7 @@ function createFeaturedMovieCard(phim) {
 				<div class="featured-meta">${releaseYear} • IMDb ${rating}/10</div>
 				<span class="featured-tag">⭐ ${rating}</span>
 			</div>
-		</article>
+		</a>
 	`;
 }
 
@@ -204,14 +204,14 @@ function renderFilms(films) {
 			: 'https://via.placeholder.com/500x750?text=No+Poster';
 		
 		return `
-		<div class="movie-card">
+		<a class="movie-card" href="movie.html?id=${phim.id || ''}">
 			<img src="${posterUrl}" alt="${phim.title || 'Không có tiêu đề'}" 
 				 onerror="this.src='https://via.placeholder.com/500x750?text=No+Image'">
 			<h3>${phim.title || 'Không có tiêu đề'}</h3>
 			<p><strong>Năm:</strong> ${phim.release_date ? phim.release_date.split('-')[0] : 'N/A'}</p>
 			<p><strong>Điểm:</strong> ${phim.vote_average ? phim.vote_average.toFixed(1) : 'N/A'}/10</p>
 			<p><strong>Mô tả:</strong> ${phim.overview ? (phim.overview.length > 100 ? phim.overview.substring(0, 100) + '...' : phim.overview) : 'Không có mô tả'}</p>
-		</div>
+		</a>
 		`;
 	}).join('');
 	
